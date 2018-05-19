@@ -13,6 +13,7 @@ var mysql = require('mysql');
 var con;
 
 
+
 connectToDB().then(function() {
 	getTicketCount(0).then(function(tickets) {
 		console.log("NUMBER OF TICKETS:" + tickets);
