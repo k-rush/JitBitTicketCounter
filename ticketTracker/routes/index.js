@@ -8,6 +8,7 @@ router.get('/total', function(req, res, next) {
 	var con = mysql.createConnection({
 	  host: "localhost",
 	  user: "root",
+	  password: "password",
 	  database: "JBCACHE"
 	});
 
@@ -26,6 +27,7 @@ router.get('/unclosed', function(req, res, next) {
 	var con = mysql.createConnection({
 	  host: "localhost",
 	  user: "root",
+	  password: "password",
 	  database: "JBCACHE"
 	});
 
