@@ -12,9 +12,23 @@ var mysql = require('mysql');
 
 var con;
 
-
+var username = 'SONOBELLO\\krush';
+var password = 'Bust3r11!';
 
 connectToDB().then(function() {
+	
+	getUnclosedTicketCount(0).then(function(unclosedTickets) {
+		console.log("NUMBER OF UNCLOSED TICKETS:" + unclosedTickets);
+		var sql = "UPDATE cache SET count = " + unclosedTickets + " WHERE type = 'unclosed'";
+		con.query(sql, function (err, result) {
+			if (err) throw err;
+			console.log("Unclosed count updated");
+			process.exit();
+		});
+	});
+	/*
+	 * Uncomment this to get both unclosewd and total. 
+	 * 
 	getTicketCount(0).then(function(tickets) {
 		console.log("NUMBER OF TICKETS:" + tickets);
 		var sql = "UPDATE cache SET count = " + tickets + " WHERE type = 'total'";
@@ -31,7 +45,7 @@ connectToDB().then(function() {
 				});
 			});
 		});
-	});
+	});*/
 });
 
 function connectToDB() {
@@ -39,6 +53,7 @@ function connectToDB() {
 		con = mysql.createConnection({
 		  host: "localhost",
 		  user: "root",
+		  password: "password",
 		  database: "JBCACHE"
 		});
 
@@ -75,7 +90,7 @@ function getTicketCount(offset) {
 			
 			tickets = JSON.parse(body);
 			ticketCount = tickets.length;
-			//console.log('Offset: ' + offset + '\nTicket count from call: ' + tickets.length);
+			console.log('Offset: ' + offset + '\nTicket count from call: ' + tickets.length);
 			resolve(ticketCount);
 		});		
 	})
@@ -110,7 +125,7 @@ function getUnclosedTicketCount(offset) {
 			
 			tickets = JSON.parse(body);
 			ticketCount = tickets.length;
-			//console.log('Offset: ' + offset + '\nTicket count from call: ' + tickets.length);
+			console.log('Offset: ' + offset + '\nTicket count from call: ' + tickets.length);
 			resolve(ticketCount);
 		});		
 	})

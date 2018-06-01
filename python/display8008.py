@@ -45,10 +45,10 @@ print 'total: ' + total
 
 unclosedDisplay.clear()
 
-unclosedDisplay.set_digit(3, int(unclosed) % 10) #ones
-unclosedDisplay.set_digit(2, int(int(unclosed)/10) % 10) #tens
-unclosedDisplay.set_digit(1, int(int(unclosed)/100) % 10) #hundreds
-unclosedDisplay.set_digit(0, int(int(unclosed)/1000) % 10) #thousands
+unclosedDisplay.set_digit(3, 8) #ones
+unclosedDisplay.set_digit(2, 0) #tens
+unclosedDisplay.set_digit(1, 0) #hundreds
+unclosedDisplay.set_digit(0, 8) #thousands
 unclosedDisplay.write_display()
 
 #---------play osunds--------------
