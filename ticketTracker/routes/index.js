@@ -42,7 +42,7 @@ router.get('/unclosed', function(req, res, next) {
 });
 
 //Use this to force update...
-router.get('/update', , function(req, res, next) {
+router.get('/update', function(req, res, next) {
 	var con = mysql.createConnection({
 	  host: "localhost",
 	  user: "root",
