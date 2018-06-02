@@ -55,7 +55,6 @@ router.get('/update', function(req, res, next) {
 		    	if (err) throw err;
 		    	console.log("Unclosed count updated");
 		    	res.send(200, {count:unclosedTickets})
-		    	process.exit();
 			});
 		});
 	});
