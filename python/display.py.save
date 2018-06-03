@@ -48,10 +48,11 @@ unclosedDisplay.clear()
 unclosedDisplay.set_digit(3, 8) #ones
 unclosedDisplay.set_digit(2, 0) #tens
 unclosedDisplay.set_digit(1, 0) #hundreds
-unclosedDisplay.set_digit(0, 8) #thousands
+unclosedDisplay.set_digit(0, int(int(unclosed)/1000) % 10) #thousands
+
 unclosedDisplay.write_display()
 
 #---------play osunds--------------
-#pygame.mixer.init()
-#pygame.mixer.music.load("tetrisb.mid")
-#pygame.mixer.music.play()
+pygame.mixer.init()
+pygame.mixer.music.load("tetrisb.mid")
+pygame.mixer.music.play()
