@@ -58,7 +58,7 @@ router.get('/update', function(req, res, next) {
 			//update screen
 			console.log("Spawning child process");
                         var spawn = require("child_process").spawn;
-                        var pythonProcess = spawn('python',["/home/pi/Documents/jitbit/python/display8008.py"], {stdio:'inherit'});
+                        var pythonProcess = spawn('python',["/home/pi/Documents/jitbit/python/display_time.py"], {stdio:'inherit'});
 
 		    	res.send(200, {count:unclosedTickets})
 			});
