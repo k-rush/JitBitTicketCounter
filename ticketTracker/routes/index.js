@@ -5,7 +5,8 @@ var async = require('async');
 var mysql = require('mysql');
 
 var con;
-
+var username = 'SONOBELLO\\krush';
+var password = '';
 
 /* GET jitbit tickets count. */
 router.get('/total', function(req, res, next) {
@@ -54,6 +55,11 @@ router.get('/update', function(req, res, next) {
 			con.query(sql, function (err, result) {
 		    	if (err) throw err;
 		    	console.log("Unclosed count updated");
+			//update screen
+			console.log("Spawning child process");
+                        var spawn = require("child_process").spawn;
+                        var pythonProcess = spawn('python',["/home/pi/Documents/jitbit/python/display8008.py"], {stdio:'inherit'});
+
 		    	res.send(200, {count:unclosedTickets})
 			});
 		});
@@ -70,7 +76,6 @@ function connectToDB() {
 	  	  password: "password",
 		  database: "JBCACHE"
 		});
-
 		con.connect(function(err) {
 		  if (err) throw err;
 		  console.log("Connected!");
