@@ -13,7 +13,7 @@ var mysql = require('mysql');
 var con;
 
 var username = 'SONOBELLO\\krush';
-var password = 'Bust3r11!';
+var password = '';
 
 connectToDB().then(function() {
 	
