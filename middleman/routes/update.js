@@ -8,7 +8,7 @@ var ticketCounterAddress = 'http://10.0.4.10:3000/update';
 router.get('/', function(req, res, next) {
 	request(ticketCounterAddress, function(error, response, body) {
 		console.log("Requested: " + ticketCounterAddress + "\nBody: " + body + "\nError" + error);
-		res.send(200, "You've engaged the middleman, and received this response from your destination: " + body);
+		res.send(200, body);
 	});
 });
 

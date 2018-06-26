@@ -25,7 +25,7 @@ segment.set_digit(1, hour % 10)          # Ones
 segment.set_digit(2, int(minute / 10))   # Tens
 segment.set_digit(3, minute % 10)        # Ones
 # Toggle colon
-segment.set_colon(second % 2)              # Toggle colon at 1Hz
+segment.set_colon(1)              # Toggle colon at 1Hz
 
 # Write the display buffer to the hardware.  This must be called to
 # update the actual display LEDs.
